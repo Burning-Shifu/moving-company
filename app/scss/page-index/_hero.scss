@@ -62,6 +62,10 @@
     line-height: 1.7em;
     color: $white;
     z-index: 1;
+
+    &::after {
+      display: none;
+    }
   }
 }
 

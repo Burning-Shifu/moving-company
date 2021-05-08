@@ -14,7 +14,7 @@ body {
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "OpenSans", sans-serif;
   font-size: 13px;
   line-height: 1.7em;
   font-weight: 400;
@@ -93,8 +93,20 @@ svg path {
 }
 
 .title {
+  position: relative;
   font-size: 30px;
   line-height: 1.3em;
   font-weight: 800;
+  color: $title;
   text-transform: uppercase;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background-color: $red;
+  }
 }
