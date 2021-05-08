@@ -1,0 +1,136 @@
+.header {
+  
+  &__top {
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  &__logo {
+    position: relative;
+    background-color: $grey;
+
+    &::after {
+      content: "";
+      position: relative;
+      left: -12px;
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 129px 94px 0 0;
+      border-color: $grey transparent transparent transparent;
+      z-index: -1;
+    }
+  }
+
+  &__address {
+    margin-left: 46px;
+  }
+
+  &__address-link {
+    position: relative;
+    display: inline-flex;
+    margin-right: 30px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    color: $text;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &::before {
+      content: "";
+      display: inline-block;
+      margin-right: 15px;
+      width: 24px;
+      height: 24px;
+      background-image: url(../../img/ico/phone.svg);
+      background-repeat: no-repeat;
+    }
+
+    &--mail {
+      &::before {
+        background-image: url(../../img/ico/mail.svg);
+      }
+    }
+  }
+
+  &__bottom {
+    justify-content: flex-end;
+    position: relative;
+
+    &::before {
+      content: "";
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 0 50px 36px;
+      border-color: transparent transparent $burgundy transparent;
+    }
+  }
+  
+  &__menu {
+    position: relative;
+    background-color: $burgundy;
+    
+  }
+
+  &__list {}
+
+  &__list-item {
+    letter-spacing: 0.4px;
+
+    &:first-child {
+      .header__list-link {
+        padding-left: 21px;
+      }
+    }
+
+    &:last-child {
+      .header__list-link {
+        padding-right: 9px;
+
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__drop {}
+  
+  &__list-link {
+    position: relative;
+    display: inline-block;
+    padding: 14px 30px;
+    color: inherit;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 13px;
+      bottom: 13px;
+      right: 0;
+      display: inline-block;
+      width: 1px;
+      background-color: #3e1e1e;
+    }
+
+  }
+  
+  &__drop-link {
+    padding-right: 48px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      right: 29px;
+      top: 23px;
+      width: 8px;
+      height: 5px;
+      background-image: url(../../img/ico/dropdown.svg);
+    }  
+  }
+}

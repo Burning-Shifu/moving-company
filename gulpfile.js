@@ -157,20 +157,11 @@ function fonts() {
 		.pipe(dest('dist/fonts/'));
 };
 
-function otf2ttf() {
-	//Данная функция не подключена, так как нужна только в случае, если у тебя есть на руках шрифт в формате otf. Что бы воспользоваться ею нужно закинуть шрифт otf в папку app/fonts и в терминале написать gulp otf2ttf. Делать это необходимо перед запуском gulp.
-	return src(['app/fonts/*.otf'])
-		.pipe(fonter({
-			formats: ['ttf']
-		}))
-		.pipe(dest('app/fonts/'))
-}
-
-function fontsStyle() {
+async function  fontsStyle() {
 	//Эта функция подключит шрифты с помощью миксинов в файл fonts.scss. При запуске появляется какое то красное уведомление, я так и не смог понять че ему надо, но шрифты подключаются и все работает, хз. Ее необходимо запустить один раз после функции gulp fonts, затем нужно в файле fonts.scss изменить имя шрифта, удалив начертание и поменять числовое значение на нужное в зависимости от начертания шрифта. Например там будет так: @include font("Jura-Bold", "Jura-Bold", "400", "normal");, а нужно будет сделать так: @include font("Jura", "Jura-Bold", "700", "normal");. Это необходимо для того что бы подключать шрифт указывая только название семейства, а начертание устанавливать стандартно при помощи свойства font-weight. Всю процедуру конвертации и подключения шрифтов необходимо проделать 1 раз перед запуском gulp, и в дальнейшем этого делать не нужно, только если в проект добавится новый шрифт.
-	let file_content = fs.readFileSync('app/scss/fonts.scss');
+	let file_content = fs.readFileSync('app/scss/_fonts.scss');
 	if (file_content == '') {
-		fs.writeFile('app/scss/fonts.scss', '', cb);
+		fs.writeFile('app/scss/_fonts.scss', '', cb);
 		return fs.readdir('dist/fonts/', function (err, items) {
 			if (items) {
 				let c_fontname;
@@ -178,7 +169,7 @@ function fontsStyle() {
 					let fontname = items[i].split('.');
 					fontname = fontname[0];
 					if (c_fontname != fontname) {
-						fs.appendFile('app/scss/fonts.scss', '@include font("' + fontname + '", "' + fontname + '", "400", "normal");\r\n', cb);
+						fs.appendFile('app/scss/_fonts.scss', '@include font("' + fontname + '", "' + fontname + '", "400", "normal");\r\n', cb);
 					}
 					c_fontname = fontname;
 				}
@@ -194,7 +185,7 @@ function cb() {
 //Включаем все в работу///////////////////////////////////////////////////////////////////
 exports.fontsStyle = fontsStyle;
 exports.fonts = fonts;
-exports.otf2ttf = otf2ttf;
+// exports.otf2ttf = otf2ttf;
 exports.images = images;
 exports.html = html;
 exports.styles = styles;

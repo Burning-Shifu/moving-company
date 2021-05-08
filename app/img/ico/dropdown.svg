@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="8" height="5" viewBox="0 0 8 5">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="drop_menu_icon" data-name="drop menu icon" class="cls-1" d="M938,148.012L933.99,143h8.02Z" transform="translate(-934 -143)"/>
+</svg>

@@ -1,4 +1,9 @@
-@import 'mixins';
-@import "fonts";
-@import "global";
+@import '_vars';
+@import "_fonts";
+@import "_global";
 
+@import "components/header";
+@import "components/footer";
+
+@import "_page-index";
+// @import "_page-prices";

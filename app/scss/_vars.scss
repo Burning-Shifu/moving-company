@@ -1,0 +1,37 @@
+//Переменные ///////////////////////////////////////
+
+$text: #505050;
+$white: #fff;
+$grey: #e6e6e6;
+$burgundy: #663333;
+$red: #d12c2c;
+$green: #518a32;
+
+
+// Адаптив /// 
+// @mixin phone {
+//   @media (max-width: 400px) { @content; }
+// }
+
+// @mixin phone-down {
+//   @media (max-width: 600px) { @content; }
+// }
+
+// @mixin tablet-down {
+//   @media (max-width: 900px) { @content; }
+// }
+
+// @mixin desctop-down {
+//   @media (max-width: 1200px) { @content; }
+// }
+
+//Подключение шрифтов
+@mixin font($font_name, $file_name, $weight, $style) {
+	@font-face {
+		font-family: $font_name;
+		font-display: swap;
+		src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
+		font-weight: #{$weight};
+		font-style: #{$style};
+	}
+}
