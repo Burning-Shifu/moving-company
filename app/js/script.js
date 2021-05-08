@@ -1,6 +1,4 @@
-
-
-// Определение поддержки браузером формата webp для использования webp в свойстве background-image в scss
+// поддержка webp
 function testWebP(callback) {
 
 	var webP = new Image();
@@ -16,4 +14,15 @@ testWebP(function (support) {
 	} else {
 		document.querySelector('body').classList.add('no-webp');
 	}
+});
+
+///////
+var swiper = new Swiper(".hero__slider", {
+	spaceBetween: 30,
+	centeredSlides: true,
+	autoplay: {
+		delay: 50000,
+		disableOnInteraction: false,
+	},
+	loop: true
 });

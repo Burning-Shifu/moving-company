@@ -89,7 +89,8 @@ function scripts() {
 //Собираем все css файлы подключаемых плагинов, конкатинируем их в 1 минифицированный файл css и закидываем его в папку dist/css с именем libs.min.css//////////////////////////////////////////////
 function stylesLibs() {
 	return src([
-		'node_modules/normalize.css/normalize.css'
+		'node_modules/normalize.css/normalize.css',
+		'node_modules/swiper/swiper-bundle.css'
 	])
 		.pipe(autoprefixer({
 			overrideBrowserslist: ['last 5 versions'],
@@ -103,15 +104,15 @@ function stylesLibs() {
 }
 
 //Собираем все js файлы подключаемых плагинов, конкатинируем их в 1 минифицированный файл js и закидываем его в папку dist/js с именем libs.min.js//////////////////////////////////////////////////
-// function scriptsLibs() {
-	// return src([
-	// 	'node_modules/jquery/dist/jquery.js'
-	// ])
-	// 	.pipe(uglify())
-	// 	.pipe(concat('libs.min.js'))
-	// 	.pipe(dest('dist/js/'))
-	// 	.pipe(browsersync.stream())
-// }
+function scriptsLibs() {
+	return src([
+		'node_modules/swiper/swiper-bundle.js',
+	])
+		.pipe(uglify())
+		.pipe(concat('libs.min.js'))
+		.pipe(dest('dist/js/'))
+		.pipe(browsersync.stream())
+}
 
 //Следим за всеми файлами jpg, png, svg, gif, ico, webp в папке app/img, конвертируем их в формат webp со сжатием в 70% и закидываем их в папку dist/img. Так же Оригинальные файлы сжимаем до 3 уровня из доступных 7(можно в функции этот параметр поменять) и отправляем сжатые оригиналы в папку dist/img. Все удаленные файлы в папке app/img удалятся из нпапки dist/img при следующем запуске gulp.///////////////////////////
 function images() {
@@ -185,16 +186,15 @@ function cb() {
 //Включаем все в работу///////////////////////////////////////////////////////////////////
 exports.fontsStyle = fontsStyle;
 exports.fonts = fonts;
-// exports.otf2ttf = otf2ttf;
 exports.images = images;
 exports.html = html;
 exports.styles = styles;
 exports.stylesLibs = stylesLibs;
 exports.scripts = scripts;
-// exports.scriptsLibs = scriptsLibs;
+exports.scriptsLibs = scriptsLibs;
 exports.watching = watching;
 exports.browserSync = browserSync;
 exports.clear = clear;
 
 
-exports.default = series(clear, stylesLibs, styles, html, scripts, images, fonts, parallel(watching, browserSync));
+exports.default = series(clear, stylesLibs, styles, html, scripts, scriptsLibs, images, fonts, parallel(watching, browserSync));
