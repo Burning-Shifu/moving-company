@@ -1,0 +1,53 @@
+.autos {
+  padding: 80px 0 110px;
+
+  &__title {
+    margin-bottom: 50px;
+  }
+
+  &__inner {
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    max-width: 435px;
+    width: 100%;
+  }
+
+  &__caption-text {
+    position: relative;
+    padding: 1.3px 10px 2px 38px;
+    width: 238px;
+    background-color: $burgundy;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -18px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 25px 18px 0 0;
+      border-color: $burgundy transparent transparent transparent;
+      z-index: 1;
+    }
+
+    &--red {
+      padding-left: 20px;
+      width: 100px;
+      background-color: $red;
+
+      &::after {
+        border-color: $red transparent transparent transparent;
+      }
+    }
+  }
+
+  &__img {
+    max-width: 460px;
+    max-height: 200px;
+    object-fit: cover;
+  }
+}

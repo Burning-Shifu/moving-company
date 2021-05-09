@@ -6,21 +6,41 @@
     color: $text;
   }
 
+  &__item {
+    position: relative;
+    
+    &::after {
+      content: "➝";
+      position: absolute;
+      top: 15%;
+      right: -25px;
+      font-size: 24px;
+    }
+
+    &:last-child {
+      
+      &::after {
+        display: none;
+      }
+    }
+  }
+
   &__pic {
 
-    &--time {
+    &--list {
       background-image: url(../../img/shipping/request.svg);
     }
 
-    &--route {
+    &--contract {
       background-image: url(../../img/shipping/dogovor.svg);
     }
 
-    &--secure {
+    &--truck {
+      width: 70px;
       background-image: url(../../img/shipping/truck.svg);
     }
 
-    &--docs {
+    &--box {
       background-image: url(../../img/shipping/box.svg);
     }
   }
