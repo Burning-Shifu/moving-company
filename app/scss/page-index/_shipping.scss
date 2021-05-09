@@ -25,6 +25,24 @@
     }
   }
 
+  &__link {
+    color: $green;
+    text-decoration: underline;
+
+    &:hover {
+      color: darken($green, 10%);
+    }
+
+    &:focus {
+      outline: 1px dashed $green;
+      outline-offset: 3px;
+    }
+
+    &:visited {
+      color: lighten($green, 10%);
+    }
+  }
+
   &__pic {
 
     &--list {

@@ -5,6 +5,7 @@ $title: #252525;
 $white: #fff;
 $grey: #e6e6e6;
 $burgundy: #663333;
+$lightenBurgundy: lighten($burgundy, 10%);
 $red: #d12c2c;
 $green: #518a32;
 
@@ -35,4 +36,12 @@ $green: #518a32;
 		font-weight: #{$weight};
 		font-style: #{$style};
 	}
+}
+
+.tag {
+	&:hover {}
+	
+	&:focus {}
+	
+	&:active {}
 }

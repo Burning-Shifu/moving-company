@@ -18,17 +18,40 @@
     column-gap: 55px;
 	}
 	
-	&__item {
-	}
+	&__item {}
 	
 	&__link {
+		display: inline-block;
+		padding: 3px 0;
 		color: inherit;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	
+		&:focus {
+			outline: 1px dashed $white;
+			outline-offset: 2px;
+		}
 	}
 
 	&__btn {
 		color: $white;
 		background-color: transparent;
 		border-color: $white;
+
+		&::after {
+			background-image: url(../img/ico/pen-white.svg);
+			z-index: 1;
+		}
+
+		&:focus {
+			box-shadow: 0 0 4px 2px $grey;
+		}
+	
+		&:active {
+			box-shadow: inset 0 0 2px 2px $grey;
+		}
 	}
 	
 	&__copyright {
@@ -37,10 +60,14 @@
 		color: #8a8a8a;
 	}
 	
-	&__copyright-text {
-	}
+	&__copyright-text {}
 	
 	&__copyright-link {
 		text-decoration: underline;
+		transition: color 0.3s;
+
+		&:hover {
+			color: $white;
+		}
 	}
 }
