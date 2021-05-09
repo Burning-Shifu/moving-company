@@ -1,0 +1,32 @@
+.pros {
+  padding: 55px 0 80px;
+  background-color: $burgundy;
+
+  &__title {
+    color: $white;
+  }
+  
+  &__pic {
+
+    &--time {
+      background-image: url(../../img/pros/clock.svg);
+    }
+
+    &--route {
+      background-image: url(../../img/pros/location.svg);
+    }
+
+    &--secure {
+      background-image: url(../../img/pros/shield.svg);
+    }
+
+    &--docs {
+      background-image: url(../../img/pros/doc.svg);
+    }
+  }
+
+  &__text {
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+}

@@ -1,0 +1,27 @@
+.shipping {
+  padding: 80px 0 85px;
+  background-color: $grey;
+
+  &__list {
+    color: $text;
+  }
+
+  &__pic {
+
+    &--time {
+      background-image: url(../../img/shipping/request.svg);
+    }
+
+    &--route {
+      background-image: url(../../img/shipping/dogovor.svg);
+    }
+
+    &--secure {
+      background-image: url(../../img/shipping/truck.svg);
+    }
+
+    &--docs {
+      background-image: url(../../img/shipping/box.svg);
+    }
+  }
+}
