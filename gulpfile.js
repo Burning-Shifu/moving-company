@@ -1,4 +1,4 @@
-//Задает константы ////////////////////////////////////////////////////////////////
+//Переменные  ////////////////////////////////////////////////////////////////
 const { src, dest, watch, series, parallel } = require('gulp'),
 			scss = require('gulp-sass'),
 			autoprefixer = require('gulp-autoprefixer'),
@@ -33,7 +33,7 @@ function browserSync() {
 function html() {
 	return src(['app/**/*.html', '!app/**/_*.html'])
 		.pipe(fileInclude())
-		.pipe(webphtml())//Этот плагин заменяет в html обычный тег img на конструкцию picture-source-img, для подключения формата webp в браузерах, которые его поддерживают.
+		.pipe(webphtml())
 		.pipe(dest('dist/'))
 		.pipe(browsersync.stream())
 }
@@ -72,20 +72,6 @@ function scripts() {
 		.pipe(browsersync.stream())
 }
 
-// OLD
-// function scripts() {
-// 	return src('app/js/script.js')
-// 		// .pipe(fileInclude())     // скрыто пока нет других js-модулей
-// 		.pipe(babel({
-// 			presets: ['@babel/env']
-// 		}))
-// 		.pipe(dest('dist/js/'))
-// 		.pipe(uglify())
-// 		.pipe(concat('script.min.js'))
-// 		.pipe(dest('dist/js/'))
-// 		.pipe(browsersync.stream())
-// }
-
 //Собираем все css файлы подключаемых плагинов, конкатинируем их в 1 минифицированный файл css и закидываем его в папку dist/css с именем libs.min.css//////////////////////////////////////////////
 function stylesLibs() {
 	return src([
@@ -114,7 +100,7 @@ function scriptsLibs() {
 		.pipe(browsersync.stream())
 }
 
-//Следим за всеми файлами jpg, png, svg, gif, ico, webp в папке app/img, конвертируем их в формат webp со сжатием в 70% и закидываем их в папку dist/img. Так же Оригинальные файлы сжимаем до 3 уровня из доступных 7(можно в функции этот параметр поменять) и отправляем сжатые оригиналы в папку dist/img. Все удаленные файлы в папке app/img удалятся из нпапки dist/img при следующем запуске gulp.///////////////////////////
+//Следим за всеми файлами jpg, png, svg, gif, ico, webp в папке app/img, конвертируем их в формат webp со сжатием в 70% и закидываем их в папку dist/img. Так же Оригинальные файлы сжимаем до 3 уровня из доступных 7 и отправляем сжатые оригиналы в папку dist/img.///////////////////////////
 function images() {
 	return src('app/img/**/*.{jpg,png,svg,gif,ico,webp}')
 		.pipe(webp({
@@ -134,7 +120,7 @@ function images() {
 		.pipe(browsersync.stream())
 }
 
-//Функция слежки за файлами. В данном случае следит за всеми файлами scss, html, js и изображениями в папке app в соответствующих подпапках.////////////////////////////////////////////////////
+//Функция слежки за файлами в папке app.////////////////////////////////////////////////////
 function watching() {
 	watch(['app/scss/**/*.scss'], styles);
 	watch(['app/**/*.html'], html);
@@ -142,14 +128,13 @@ function watching() {
 	watch(['app/img/**/*.{jpg,png,svg,gif,ico,webp}'], images);
 }
 
-//Функция удаления папки dist. Срабатывает при каждом запуске gulp, перед всеми функциями.//////////////
+//Функция удаления папки dist.//////////////
 function clear() {
 	return del('dist/');
 }
 
 //Конвертация и подключение шрифтов.////////////////////////////////////////////////////////////
 function fonts() {
-	//Данная функция конвертирует шрифты ttf в woff и woff2, Ее необходимо один раз запустить перед запуском проекта, затем запустить функцию gulp fontsStyle, и только после этого запустить gulp. Повторно этого делать не нужно, только в случае, если добавились новые шрифты.
 	src('app/fonts/*.ttf')
 		.pipe(ttf2woff())
 		.pipe(dest('dist/fonts/'));
@@ -159,7 +144,6 @@ function fonts() {
 };
 
 function otf2ttf() {
-	//Данная функция не подключена, так как нужна только в случае, если у тебя есть на руках шрифт в формате otf. Что бы воспользоваться ею нужно закинуть шрифт otf в папку app/fonts и в терминале написать gulp otf2ttf. Делать это необходимо перед запуском gulp.
 	return src(['app/fonts/*.otf'])
 		.pipe(fonter({
 			formats: ['ttf']
@@ -168,7 +152,6 @@ function otf2ttf() {
 }
 
 async function  fontsStyle() {
-	//Эта функция подключит шрифты с помощью миксинов в файл fonts.scss. При запуске появляется какое то красное уведомление, я так и не смог понять че ему надо, но шрифты подключаются и все работает, хз. Ее необходимо запустить один раз после функции gulp fonts, затем нужно в файле fonts.scss изменить имя шрифта, удалив начертание и поменять числовое значение на нужное в зависимости от начертания шрифта. Например там будет так: @include font("Jura-Bold", "Jura-Bold", "400", "normal");, а нужно будет сделать так: @include font("Jura", "Jura-Bold", "700", "normal");. Это необходимо для того что бы подключать шрифт указывая только название семейства, а начертание устанавливать стандартно при помощи свойства font-weight. Всю процедуру конвертации и подключения шрифтов необходимо проделать 1 раз перед запуском gulp, и в дальнейшем этого делать не нужно, только если в проект добавится новый шрифт.
 	let file_content = fs.readFileSync('app/scss/_fonts.scss');
 	if (file_content == '') {
 		fs.writeFile('app/scss/_fonts.scss', '', cb);
