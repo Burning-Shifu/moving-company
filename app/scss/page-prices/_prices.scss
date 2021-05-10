@@ -1,0 +1,177 @@
+.price {
+  padding: 16px 0 80px;
+
+  &__inner {
+  }
+
+  &__breadcrumbs {
+    margin-bottom: 28px;
+  }
+
+  &__title {
+    margin-bottom: 50px;
+  }
+
+  &__tabs {
+    margin-bottom: 45px;
+  }
+
+  &__tabs-list {
+    width: fit-content;
+    background-color: $burgundy;
+  }
+
+  &__tabs-item {
+    position: relative;
+    padding: 9.3px 30px;
+    cursor: pointer;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -29px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 40px 29px 0 0;
+      border-color: $burgundy transparent transparent transparent;
+    }
+
+    &:first-child {
+      padding-left: 20px;
+    }
+
+    // &:hover {
+    //   background-color: $red;
+
+    //   &::after {
+    //     border-color: $red transparent transparent transparent;
+    //   }
+    // }
+
+    &.active {
+      background-color: $red;
+
+      &::after {
+        border-color: $red transparent transparent transparent;
+      }
+    }
+  }
+
+  &__block {
+    
+    &.show {
+      display: block;
+    }
+    
+    &.hide {
+      display: none;
+    }
+  }
+  
+  &__text {
+  }
+  
+  &__content {
+    justify-content: space-between;
+  }
+  
+  &__images {
+  }
+  
+  &__img {
+    margin-right: 15px;
+    margin-bottom: 15px;
+  }
+
+  &__content-right {
+    flex-shrink: 0;
+  }
+  
+  &__info {
+    position: relative;
+    margin-bottom: 50px;
+    padding: 30px 25px;
+    color: $text;
+    background-color: $grey;
+
+    &::before, &::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;            
+    }
+
+    &::before {
+      top: 0;
+      left: 0;
+      border-width: 25px 18px 0 0;
+      border-color: $white transparent transparent transparent;
+    }
+
+    &::after {
+      bottom: 0;
+      right: 0;
+      border-width: 0 0 25px 18px;
+      border-color: transparent transparent $white transparent;
+    }
+  }
+
+  &__info-left {
+    margin-right: 48px;
+  }
+
+  &__info-name {
+    margin-bottom: 12px;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  &__info-list {
+  }
+
+  &__list-item {
+    margin-bottom: 5px;
+
+    &::before {
+      content: "−";
+      padding-right: 4px;
+    }
+  }
+
+  &__info-right {
+    margin-right: 16px;
+  }
+
+  &__info-wrapper {
+    margin-bottom: 22px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__info-text {
+    font-family: "MuseoCyrl300", "Arial", sans-serif;
+  }
+
+  &__btn {
+    color: $green;
+    border-color: $green;
+
+    &:hover {
+      background-color: lighten($green, 60%);
+    }
+
+    &:focus {
+      outline: transparent;
+      box-shadow: 0 0 2px 2px lighten($green, 10%);
+    }
+  
+    &:active {
+      box-shadow: inset 0 0 2px 2px lighten($green, 10%);
+    }
+  }
+}
