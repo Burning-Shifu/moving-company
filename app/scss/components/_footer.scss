@@ -5,6 +5,7 @@
 
 	&__top {
 		justify-content: space-between;
+		align-items: center;
 		padding-bottom: 40px;
 		border-bottom: 1px solid #333333;
 	}
@@ -36,6 +37,7 @@
 	}
 
 	&__btn {
+		height: fit-content;
 		color: $white;
 		background-color: transparent;
 		border-color: $white;

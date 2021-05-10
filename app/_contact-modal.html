@@ -1,0 +1,37 @@
+<div class="modal" id="contactModal">
+  <div class="modal__inner d-flex">
+    <div class="modal__content">
+      <div class="modal__top d-flex">
+        <h2 class="modal__title">Форма обратной связи</h2>
+        <div data-close class="modal__close">
+          Закрыть
+          <svg class="modal__close-svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+            <path id="close" class="cls-1" d="M1137,358a8,8,0,1,0,8,8A7.974,7.974,0,0,0,1137,358Zm1.16,8.145,2.73,2.728a0.405,0.405,0,0,1,.11.254,0.41,0.41,0,0,1-.11.255l-0.51.509a0.386,0.386,0,0,1-.25.109,0.354,0.354,0,0,1-.26-0.109l-2.72-2.727a0.182,0.182,0,0,0-.26,0l-2.73,2.727a0.386,0.386,0,0,1-.25.109,0.354,0.354,0,0,1-.26-0.109l-0.5-.509a0.361,0.361,0,0,1-.11-0.255,0.358,0.358,0,0,1,.11-0.254l2.72-2.728a0.164,0.164,0,0,0,0-.254l-2.72-2.727a0.351,0.351,0,0,1,0-.51l0.5-.509a0.431,0.431,0,0,1,.26-0.109,0.386,0.386,0,0,1,.25.109l2.73,2.728a0.183,0.183,0,0,0,.26,0l2.72-2.728a0.409,0.409,0,0,1,.26-0.109,0.318,0.318,0,0,1,.25.109l0.51,0.509a0.351,0.351,0,0,1,0,.51l-2.73,2.727A0.179,0.179,0,0,0,1138.16,366.145Z" transform="translate(-1129 -358)"/>
+          </svg>
+        </div>
+      </div>
+      
+      <form class="form" id="contact-form" method="post">
+        <div class="form__inner">
+            
+          <label class="form__label">Ваше имя
+            <input class="form__input" type="text" name="name" id="contact-name" required>
+          </label>
+          <label class="form__label">Телефон
+            <input class="form__input" type="tel" name="number" id="contact-number" required>
+          </label>
+
+          <div class="form__check-wrapper d-flex">
+            <input class="form__check-input" type="checkbox" name="agreement" id="contact-agreement">
+            <span class="form__check"></span>
+            <label for="contact-agreement" class="form__check-label">Согласен на обработку персональных данных</label>
+          </div>
+
+          <button class="btn form__btn" id="book-submit" type="submit">Отправить</button>
+
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>

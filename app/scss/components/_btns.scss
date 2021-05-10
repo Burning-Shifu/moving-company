@@ -1,5 +1,5 @@
 .btn {
-  padding: 10px 24px;
+  padding: 12px 24px;
   color: $burgundy;
   background-color: $white;
   border: 1px solid $burgundy;
@@ -35,6 +35,7 @@
   }
 
   &:focus {
+    outline: transparent;
     box-shadow: 0 0 2px 2px $lightenBurgundy;
   }
 
