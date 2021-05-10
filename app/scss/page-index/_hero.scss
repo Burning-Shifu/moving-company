@@ -1,32 +1,32 @@
 .hero {
 
-  &__slider {    
-    position: relative;
+  // &__slider {    
+  //   position: relative;
 
-    &::before, &::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-    }
+  //   &::before, &::after {
+  //     content: "";
+  //     position: absolute;
+  //     bottom: 0;
+  //   }
 
-    &::before {
-      left: 60.8%;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-width: 0 0 25px 25px;
-      border-color: transparent transparent $white transparent;
-      z-index: 2;
-    }
+  //   &::before {
+  //     left: 60.8%;
+  //     width: 0;
+  //     height: 0;
+  //     border-style: solid;
+  //     border-width: 0 0 25px 25px;
+  //     border-color: transparent transparent $white transparent;
+  //     z-index: 2;
+  //   }
 
-    &::after {
-      left: 62%;
-      width: 100%;
-      height: 25px;
-      background-color: $white;
-      z-index: 1;
-    }
-  }
+  //   &::after {
+  //     left: 62%;
+  //     width: 100%;
+  //     height: 25px;
+  //     background-color: $white;
+  //     z-index: 1;
+  //   }
+  // }
 
   &__slider-inner {}
 
@@ -62,6 +62,10 @@
     line-height: 1.7em;
     color: $white;
     z-index: 1;
+
+    @include phone {
+      right: 0;
+    }
 
     &::after {
       display: none;

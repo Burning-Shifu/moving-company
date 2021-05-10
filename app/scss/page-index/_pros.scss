@@ -5,6 +5,19 @@
   &__title {
     color: $white;
   }
+
+  &__list {
+    @include phone {
+      justify-content: center;
+    }
+  }
+
+  &__item {
+    
+    @include phone {
+      max-width: 100%;
+    }
+  }
   
   &__pic {
 

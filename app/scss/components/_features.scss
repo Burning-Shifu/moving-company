@@ -3,12 +3,20 @@
   &__list {
     justify-content: space-between;
     margin-top: 40px;
+
+    @include phone {
+      flex-wrap: wrap;
+    }
   }
 
   &__item {
     max-width: 221px;
     width: 100%;
     text-align: center;
+
+    @include phone {
+      margin-bottom: 20px;
+    }
   }
 
   &__pic {

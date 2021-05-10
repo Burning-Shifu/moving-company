@@ -8,15 +8,31 @@
 		align-items: center;
 		padding-bottom: 40px;
 		border-bottom: 1px solid #333333;
+
+		@include tablet {
+			flex-direction: column;
+		}
 	}
 	
 	&__address {
 		font-style: normal;
+
+		@include tablet {
+			margin-bottom: 20px;
+		}
 	}
 	
 	&__list {
 		column-count: 2;
     column-gap: 55px;
+
+		@include tablet {
+			column-gap: 30px;
+		}
+
+		@include phone {
+			column-count: 1
+		}
 	}
 	
 	&__item {}
@@ -25,6 +41,10 @@
 		display: inline-block;
 		padding: 3px 0;
 		color: inherit;
+
+		@include phone {
+			padding: 6px 0;
+		}
 
 		&:hover {
 			text-decoration: underline;
@@ -60,6 +80,10 @@
 		justify-content: space-between;
 		padding-top: 15px;
 		color: #8a8a8a;
+
+		@include phone {
+			flex-direction: column;
+		}
 	}
 	
 	&__copyright-text {}

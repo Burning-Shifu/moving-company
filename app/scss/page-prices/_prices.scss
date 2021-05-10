@@ -19,12 +19,30 @@
   &__tabs-list {
     width: fit-content;
     background-color: $burgundy;
+
+    @include tablet {
+      flex-wrap: wrap;
+    }
   }
 
   &__tabs-item {
     position: relative;
     padding: 9.3px 30px;
     cursor: pointer;
+    transition: background-color 0.3s;
+
+    @include tablet {
+      padding: 10px 20px;
+    }
+    
+    @include phone-down {      
+      width: 50%;
+      border-bottom: 1px solid darken($burgundy, 10%);
+  
+      &:nth-of-type(odd) {
+        border-right: 1px solid darken($burgundy, 10%);
+      }
+    }
 
     &::after {
       content: "";
@@ -36,19 +54,29 @@
       border-style: solid;
       border-width: 40px 29px 0 0;
       border-color: $burgundy transparent transparent transparent;
+      transition: background-color 0.3s;
+
+      @include tablet {
+        display: none;
+      }
     }
 
     &:first-child {
       padding-left: 20px;
     }
 
-    // &:hover {
-    //   background-color: $red;
+    &:hover {
+      background-color: darken($red, 20%);
 
-    //   &::after {
-    //     border-color: $red transparent transparent transparent;
-    //   }
-    // }
+      &::after {
+        border-color: darken($red, 20%) transparent transparent transparent;
+      }
+    }
+
+    &:focus {
+      outline: transparent;
+      text-decoration: underline;
+    }
 
     &.active {
       background-color: $red;
@@ -71,10 +99,16 @@
   }
   
   &__text {
+    color: $text;
+    margin-bottom: 30px;
   }
   
   &__content {
     justify-content: space-between;
+
+    @include tablet {
+      flex-direction: column;
+    }
   }
   
   &__images {
@@ -95,6 +129,10 @@
     padding: 30px 25px;
     color: $text;
     background-color: $grey;
+
+    @include phone {
+      flex-direction: column;
+    }
 
     &::before, &::after {
       content: "";
@@ -121,6 +159,14 @@
 
   &__info-left {
     margin-right: 48px;
+
+    @include phone-down {
+      margin-right: 20px;
+    }
+
+    @include phone {
+      margin-bottom: 15px;
+    }
   }
 
   &__info-name {
@@ -143,6 +189,10 @@
 
   &__info-right {
     margin-right: 16px;
+
+    @include phone-down {
+      margin-right: 0;
+    }
   }
 
   &__info-wrapper {

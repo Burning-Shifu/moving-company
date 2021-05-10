@@ -11,21 +11,17 @@ $green: #518a32;
 
 
 // Адаптив /// 
-// @mixin phone {
-//   @media (max-width: 400px) { @content; }
-// }
+@mixin phone {
+  @media (max-width: 400px) { @content; }
+}
 
-// @mixin phone-down {
-//   @media (max-width: 600px) { @content; }
-// }
+@mixin phone-down {
+  @media (max-width: 600px) { @content; }
+}
 
-// @mixin tablet-down {
-//   @media (max-width: 900px) { @content; }
-// }
-
-// @mixin desctop-down {
-//   @media (max-width: 1200px) { @content; }
-// }
+@mixin tablet {
+  @media (max-width: 960px) { @content; }
+}
 
 //Подключение шрифтов
 @mixin font($font_name, $file_name, $weight, $style) {

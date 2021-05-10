@@ -20,6 +20,10 @@
     width: 100%;
     background-color: $white;
     overflow: hidden;
+
+    @include phone {
+      max-width: 100%;
+    }
   }
 
   &__top {
@@ -35,11 +39,15 @@
     font-weight: 400;
     background-color: $burgundy;
 
+    @include phone {
+      padding-right: 10px;
+    }
+
     &::after {
       content: "";
       position: absolute;
       top: 0;
-      right: -29px;
+      right: -28px;
       width: 0;
       height: 0;
       border-style: solid;
@@ -55,7 +63,6 @@
     cursor: pointer;
     transition: text-shadow 0.3s;
     
-
     &:hover {
       text-shadow:
       -3px 3px 0 $grey,

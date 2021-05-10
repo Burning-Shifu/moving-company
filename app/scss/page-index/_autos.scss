@@ -1,6 +1,10 @@
 .autos {
   padding: 80px 0 110px;
 
+  @include phone {
+    padding: 50px 0;
+  }
+
   &__title {
     margin-bottom: 50px;
   }
@@ -13,6 +17,10 @@
   &__item {
     max-width: 435px;
     width: 100%;
+
+    @include phone {
+      min-width: 100%;
+    }
   }
 
   &__caption-text {
@@ -20,6 +28,10 @@
     padding: 1.3px 10px 2px 38px;
     width: 238px;
     background-color: $burgundy;
+
+    @include phone {
+      padding-left: 10px;
+    }
 
     &::after {
       content: "";
@@ -32,6 +44,10 @@
       border-width: 25px 18px 0 0;
       border-color: $burgundy transparent transparent transparent;
       z-index: 1;
+
+      @include phone {
+        display: none;
+      }
     }
 
     &--red {
@@ -46,8 +62,12 @@
   }
 
   &__img {
-    max-width: 460px;
+    max-width: 440px;
     max-height: 200px;
     object-fit: cover;
+
+    @include phone {
+      max-width: 100%;
+    }
   }
 }

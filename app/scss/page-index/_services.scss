@@ -1,14 +1,26 @@
 .services {
   padding: 70px 0 110px;
 
+  @include tablet {
+    padding: 50px 0;
+  }
+
   &__top {
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 30px;
+
+    @include tablet {
+      flex-direction: column;
+    }
   }
 
   &__top-img {
     position: relative;
+
+    @include tablet {
+      margin: 20px auto 0;
+    }
   }
 
   &__map {
@@ -18,17 +30,33 @@
   }
 
   &__middle {
+    justify-content: space-between;
     margin-bottom: 90px;
+
+    @include tablet {
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
   }
 
   &__block {
     position: relative;
-    margin-right: 30px;
     overflow: hidden;
+
+    @include tablet {
+      width: 46%;
+      margin-bottom: 20px;
+    }
+
+    @include phone {
+      width: 100%;
+    }
 
     &:last-child {
       margin-right: 0;
     }
+
 
     &:hover {
       picture:last-of-type .services__img {
@@ -51,6 +79,12 @@
     display: block;
     width: 300px;
     height: 180px;
+
+    @include tablet {
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
   }
 
   &__caption  {
@@ -58,10 +92,12 @@
 
     &::after {
       content: "";
+      position: relative;
+      left: -1px;
       width: 0;
       height: 0;
       border-style: solid;
-      border-width: 25px 18px 0 0;
+      border-width: 26px 18px 0 0;
       border-color: $green transparent transparent transparent;
     }
 
@@ -69,6 +105,11 @@
       position: absolute;
       bottom: 18%;
       width: 58%;
+
+      @include phone {
+        width: 100%;
+        bottom: 0;
+      }
 
       &::after {
         border-width: 39.5px 18px 0 0;

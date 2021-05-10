@@ -66,6 +66,12 @@ svg path {
   max-width: 269px;
   width: 100%;
 
+  @include phone-down {
+    max-width: 100%;
+    padding: 10px 0;
+    z-index: 3;
+  }
+
   &__img {
     display: block;
     margin-right: 18px;
